@@ -19,4 +19,30 @@ class LogbookController extends Controller
 
         return view('home');
     }
+
+    public function addlog()
+    {
+        return view('addlog');
+    }
+
+    public function storelog()
+    {
+        request()->validate([
+            'date' => 'required|date',
+            'clock_in' => 'required',
+            'clock_out' => 'required',
+            'activity' => 'required'
+        ]);
+
+        Logbook::create([
+            'date' => request('date'),
+            'clock_in' => request('clock_in'),
+            'clock_out' => request('clock_out'),
+            'activity' => request('activity'),
+            'desc' => request('description'),
+            'approval' => request()->exists('approval') ? true : false
+        ]);
+
+        return redirect(route('dashboard'))->with('message', 'Entry Added');
+    }
 }

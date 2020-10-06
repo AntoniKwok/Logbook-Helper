@@ -4,6 +4,13 @@
 <div class="container">
     <div class="justify-content-center">
         <h2 class="mb-4">September</h2>
+
+        @if (session('message'))
+            <div class="alert alert-info">
+                {{ session('message') }}
+            </div>
+        @endif
+
         <table class="table table-striped table-bordered logbook-datatable">
             <thead>
             <tr>

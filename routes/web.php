@@ -20,3 +20,5 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/dashboard', [App\Http\Controllers\LogbookController::class, 'index'])->name('dashboard');
+Route::get('/dashboard/addlog', [App\Http\Controllers\LogbookController::class, 'addlog'])->name('dashboard.addlog');
+Route::post('/dashboard/addlog', [App\Http\Controllers\LogbookController::class, 'storelog'])->name('dashboard.storelog');
