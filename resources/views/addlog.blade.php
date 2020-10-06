@@ -52,12 +52,7 @@
 
                     <div class="control-group">
                         <label class="control-label" for='description'>Description:</label>
-                        <div class="controls"><input id='description' class='form-control' name='description' type="text" value="{{ old('description') }}" /></div>
-                    </div>
-
-                    <div class="control-group">
-                        <br><label class="control-label" for='approval'>Approved:</label>
-                        <input id='approval' name='approval' type="checkbox" value="" />
+                        <div class="controls"><textarea class='form-control' rows="5" id='description' name='description'>{{ old('description') }}</textarea></div>
                     </div>
 
                 </div>

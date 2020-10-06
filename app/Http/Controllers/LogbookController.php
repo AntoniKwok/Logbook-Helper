@@ -44,8 +44,7 @@ class LogbookController extends Controller
             'clock_in' => request('clock_in'),
             'clock_out' => request('clock_out'),
             'activity' => request('activity'),
-            'desc' => request('description'),
-            'approval' => request()->exists('approval') ? true : false
+            'desc' => request('description')
         ]);
 
         return redirect(route('dashboard'))->with('message', 'Entry Added');
