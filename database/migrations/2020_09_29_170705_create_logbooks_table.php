@@ -19,8 +19,8 @@ class CreateLogbooksTable extends Migration
             $table->string('clock_in');
             $table->string('clock_out');
             $table->string('activity');
-            $table->string('desc');
-            $table->integer('approval');
+            $table->string('desc')->nullable();
+            $table->integer('approval')->default(0);
             $table->timestamps();
         });
     }
