@@ -10899,3 +10899,20 @@ a.text-dark:focus {
   }
 }
 
+.inner-edit-logbook-modal{
+    background-color: white;
+    width: 70%;
+    padding: 2vw 2vh;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 5px;
+}
+
+.edit-logbook-header{
+    text-align: center;
+    margin-bottom: 5vh;
+}

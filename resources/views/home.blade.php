@@ -13,19 +13,21 @@
 
         <table class="table table-striped table-bordered logbook-datatable">
             <thead>
-            <tr>
-                <th>No</th>
-                <th>Date</th>
-                <th>Clock In</th>
-                <th>Clock Out</th>
-                <th>Activity</th>
-                <th>Description</th>
-                <th>Site Supervisor Approval</th>
-            </tr>
+                <tr>
+                    <th>No</th>
+                    <th>Date</th>
+                    <th>Clock In</th>
+                    <th>Clock Out</th>
+                    <th>Activity</th>
+                    <th>Description</th>
+                    <th>Site Supervisor Approval</th>
+                    <th>Action</th>
+                </tr>
             </thead>
             <tbody>
             </tbody>
         </table>
-    </div>
+        @include('edit-log-modal')
+</div>
 </div>
 @endsection
