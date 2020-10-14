@@ -102,7 +102,7 @@
 
     <script type="text/javascript">
         $(function () {
-            var table = $('.logbook-datatable').DataTable({
+            let logbookData = {
                 processing: true,
                 serverSide: true,
                 ajax: "{{ route('dashboard') }}",
@@ -113,23 +113,33 @@
                     {data: 'clock_out', name: 'clock_out'},
                     {data: 'activity', name: 'activity'},
                     {data: 'desc', name: 'description'},
+                    {data: 'approval', name: 'approval'},
                     {
-                        data: 'approval',
-                        name: 'approval',
-                    },
+                        data: null,
+                        render: function(data){
+                            return edit_button = '<form id="edit" action="' + data.edit +
+                                '" method="POST"><input type="hidden" name="_method" value="POST">{{csrf_field()}}'+
+                                '<button type="submit" class="btn btn-primary">Edit</button>';
+                        }
+                    }
                 ],
-                // dom: 'Bfrtip',
-                // buttons: [
-                //     {
-                //         extend : 'excel', className : 'btn-sm btn-dark'
-                //     },
-                //     {
-                //         extend : 'pdf', className : 'btn-sm btn-dark'
-                //     }
-                // ],
                 responsive : true
-            });
+            };
+            var logbookTable = $('.logbook-datatable').DataTable(logbookData);
 
+            $('.logbook-datatable').on('click', '#edit', function(e){
+                e.preventDefault();
+                let data = logbookTable.row($(this).closest('tr')).data();
+                $modal = $('.edit-logbook-modal');
+                $modal.find('input[name=id]').val(data.id);
+                $modal.find('input[name=date]').val(data.date);
+                $modal.find('input[name=clock_in]').val(data.clock_in);
+                $modal.find('input[name=clock_out]').val(data.clock_out);
+                $modal.find('input[name=activity]').val(data.activity);
+                $modal.find('textarea[name=description]').val(data.desc);
+
+                $modal.modal('show');
+            });
         });
     </script>
 </body>
