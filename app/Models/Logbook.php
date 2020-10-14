@@ -9,8 +9,4 @@ class Logbook extends Model
 {
     use HasFactory;
     public $guarded = [];
-
-//    public function findById($id){
-//        return $this->where('id', $id)->first();
-//    }
 }
